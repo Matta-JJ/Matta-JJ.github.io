@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>mattaStudies</title>
+<title>Fatoumatta Jarju — Cybersecurity Analyst</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,106 +13,386 @@
     --grid-line:#20456f;
     --paper:#EDE6D6;
     --paper-dim:#B9C6D6;
+    --slate:#7E93AC;
     --aws-orange:#FF9900;
     --wire-cyan:#63C4D6;
+    --safe-green:#4FB286;
   }
   *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;
     background:var(--navy-deep);
     color:var(--paper);
     font-family:'Inter',sans-serif;
     background-image:
-      repeating-linear-gradient(0deg, rgba(99,196,214,0.055) 0px, rgba(99,196,214,0.055) 1px, transparent 1px, transparent 40px),
-      repeating-linear-gradient(90deg, rgba(99,196,214,0.055) 0px, rgba(99,196,214,0.055) 1px, transparent 1px, transparent 40px);
-    min-height:100vh;
-    padding:64px 24px;
+      repeating-linear-gradient(0deg, rgba(99,196,214,0.05) 0px, rgba(99,196,214,0.05) 1px, transparent 1px, transparent 40px),
+      repeating-linear-gradient(90deg, rgba(99,196,214,0.05) 0px, rgba(99,196,214,0.05) 1px, transparent 1px, transparent 40px);
   }
-  h1,h2{font-family:'Space Grotesk',sans-serif; margin:0;}
-  main{max-width:840px; margin:0 auto;}
-  .back{
-    font-family:'JetBrains Mono',monospace;
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+
+  main{max-width:900px; margin:0 auto; padding:0 22px 80px;}
+
+  /* ===== Hero ===== */
+  header{
+    padding:80px 22px 48px;
+    text-align:center;
+    border-bottom:1px dashed var(--grid-line);
+  }
+  .stamp{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:2px;
+    color:var(--aws-orange);
+    border:1px solid var(--aws-orange);
+    padding:4px 10px;
+    border-radius:2px;
+    margin-bottom:20px;
+  }
+  header h1{
+    font-size:clamp(30px,6vw,50px);
+    letter-spacing:-0.5px;
+  }
+  header h1 span{color:var(--wire-cyan);}
+  header .role{
+    font-size:16px;
+    color:var(--paper-dim);
+    margin-top:10px;
+    letter-spacing:.5px;
+  }
+  header p.sub{
+    max-width:600px;
+    margin:20px auto 28px;
+    color:var(--paper-dim);
+    font-size:14.5px;
+    line-height:1.7;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+  }
+  .contact-row a, .contact-row span{
+    font-size:12.5px;
+    letter-spacing:.5px;
+    text-decoration:none;
+    border:1px solid var(--grid-line);
+    background:var(--navy-panel);
+    padding:9px 16px;
+    border-radius:6px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .contact-row a:hover{
+    border-color:var(--aws-orange);
+    transform:translateY(-2px);
+  }
+
+  /* ===== Section shell ===== */
+  section{margin-top:60px;}
+  .sec-label{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--wire-cyan);
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .sec-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg, var(--grid-line), transparent);
+  }
+  .sec-title{
+    font-size:clamp(20px,3vw,26px);
+    margin-bottom:20px;
+  }
+
+  /* ===== About ===== */
+  .about-text{
+    color:var(--paper-dim);
+    font-size:14.5px;
+    line-height:1.8;
+    max-width:680px;
+  }
+
+  /* ===== Experience ===== */
+  .job{
+    border:1px solid var(--grid-line);
+    border-left:3px solid var(--safe-green);
+    background:var(--navy-panel);
+    border-radius:8px;
+    padding:20px 22px;
+    margin-bottom:16px;
+  }
+  .job-head{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:8px;
+    margin-bottom:10px;
+  }
+  .job-head h3{font-size:16.5px; color:var(--paper);}
+  .job-head .dates{
+    font-size:11.5px;
+    color:var(--slate);
+  }
+  .job-head .company{
     font-size:12px;
     color:var(--wire-cyan);
-    text-decoration:none;
+    display:block;
+    margin-top:2px;
   }
-  h1{
-    font-size:clamp(30px,5vw,46px);
-    margin:18px 0 8px;
-  }
-  h1 span{color:var(--wire-cyan);}
-  p.sub{
+  .job ul{
+    margin:0;
+    padding-left:18px;
     color:var(--paper-dim);
-    font-size:15px;
-    line-height:1.6;
-    max-width:560px;
-    margin-bottom:40px;
+    font-size:13.5px;
+    line-height:1.7;
   }
+  .job ul li{margin-bottom:6px;}
+
+  /* ===== Grid cards (certs / education) ===== */
   .grid{
     display:grid;
-    gap:16px;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:14px;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
   }
   .card{
-    display:block;
-    text-decoration:none;
     background:var(--navy-panel);
     border:1px solid var(--grid-line);
     border-radius:8px;
-    padding:20px;
-    color:var(--paper);
-    transition:border-color .15s ease, transform .15s ease;
-  }
-  .card:hover{
-    border-color:var(--aws-orange);
-    transform:translateY(-3px);
+    padding:16px 18px;
   }
   .card .tag{
-    font-family:'JetBrains Mono',monospace;
     font-size:10px;
     letter-spacing:1.5px;
-    color:var(--wire-cyan);
+    text-transform:uppercase;
+    color:var(--slate);
+    display:block;
+    margin-bottom:6px;
+  }
+  .card h4{
+    font-size:14.5px;
+    color:var(--paper);
+    margin:0 0 4px;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .card p{
+    font-size:12.5px;
+    color:var(--paper-dim);
+    margin:0;
+    line-height:1.5;
+  }
+
+  /* ===== Skills ===== */
+  .skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .pill{
+    font-size:12px;
+    border:1px solid var(--grid-line);
+    background:var(--navy-panel);
+    color:var(--paper-dim);
+    padding:6px 12px;
+    border-radius:20px;
+  }
+
+  /* ===== Studies callout ===== */
+  .studies-card{
+    display:block;
+    text-decoration:none;
+    border:2px dashed var(--aws-orange);
+    border-radius:10px;
+    padding:26px 24px;
+    background:rgba(255,153,0,0.03);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .studies-card:hover{
+    transform:translateY(-3px);
+    background:rgba(255,153,0,0.06);
+  }
+  .studies-card .tag{
+    font-size:11px;
+    letter-spacing:2px;
+    color:var(--aws-orange);
     text-transform:uppercase;
     display:block;
     margin-bottom:8px;
   }
-  .card h3{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:18px;
-    margin:0 0 6px;
-  }
-  .card p{
-    font-size:13px;
-    color:var(--paper-dim);
-    line-height:1.5;
-    margin:0;
-  }
-  .card.placeholder{
-    opacity:0.45;
-    border-style:dashed;
+  .studies-card h3{font-size:18px; color:var(--paper); margin-bottom:6px;}
+  .studies-card p{font-size:13px; color:var(--paper-dim); margin:0; line-height:1.6;}
+
+  footer{
+    text-align:center;
+    padding:40px 22px;
+    color:var(--slate);
+    font-size:12px;
+    border-top:1px dashed var(--grid-line);
   }
 </style>
 </head>
 <body>
-  <main>
-    <a class="back" href="../">← back to portfolio</a>
-    <h1>matta<span>Studies</span></h1>
-    <p class="sub">A running log of what I'm learning, built as visual maps instead of plain notes. Click into a topic below.</p>
 
-    <div class="grid">
-      <a class="card" href="aws-city/">
-        <span class="tag">Cloud · AWS SAA-C03</span>
-        <h3>The AWS City</h3>
-        <p>Solutions Architect Associate concepts, mapped as a city — VPCs, subnets, IAM, and everything in between.</p>
-      </a>
+<header>
+  <div class="stamp mono">PORTFOLIO</div>
+  <h1>Fatoumatta <span>Jarju</span></h1>
+  <div class="role mono">Cybersecurity Analyst · Vulnerability Management · Incident Response</div>
+  <p class="sub">I work across vulnerability management, threat hunting, and system hardening — turning scan results and alerts into remediations that actually reduce risk. Currently at Accenture, based in Minnesota.</p>
+  <div class="contact-row mono">
+    <a href="mailto:fmatta.jarju@gmail.com">✉ fmatta.jarju@gmail.com</a>
+    <a href="https://linkedin.com/in/matta-jj/" target="_blank" rel="noopener">in/matta-jj</a>
+    <span>📍 Minnesota</span>
+  </div>
+</header>
 
-      <!-- Add new study topics by copying this block and pointing href at a new folder -->
-      <div class="card placeholder">
-        <span class="tag">Next up</span>
-        <h3>New topic</h3>
-        <p>Add a folder like /mattaStudies/topic-name/index.html and link it here.</p>
+<main>
+
+  <section>
+    <div class="sec-label">01 · About</div>
+    <h2 class="sec-title">What I do</h2>
+    <p class="about-text">I'm a cybersecurity analyst working across three connected disciplines: finding vulnerabilities before they're exploited, hunting for threats once something's already inside, and hardening systems so the same issue doesn't come back. My background started in IT support at a healthcare network, which taught me how security decisions actually land on the people and systems using them day to day — I bring that same practical lens to every remediation and detection rule I write.</p>
+  </section>
+
+  <section>
+    <div class="sec-label">02 · Experience</div>
+    <h2 class="sec-title">Where I've worked</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <h3>Cyber Security Analyst — Vulnerability Management</h3>
+          <span class="company mono">Accenture</span>
+        </div>
+        <span class="dates mono">Mar 2024 – Present</span>
       </div>
+      <ul>
+        <li>Ran vulnerability scans and PowerShell-based remediations, contributing to a 100% reduction in critical, 90% in high, and 76% in medium vulnerabilities for the server team.</li>
+        <li>Performed risk-prioritized assessments across Windows and Linux environments using Tenable.</li>
+        <li>Executed secure configurations and DISA STIG compliance audits.</li>
+        <li>Automated remediation and STIG implementation with PowerShell.</li>
+      </ul>
     </div>
-  </main>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <h3>Incident Response Analyst — Security Operations &amp; Incident Response</h3>
+          <span class="company mono">Accenture</span>
+        </div>
+        <span class="dates mono">Mar 2024 – Present</span>
+      </div>
+      <ul>
+        <li>Performed threat hunting with EDR, detecting IoCs from brute force attacks, data exfiltration, and ransomware.</li>
+        <li>Designed and published threat hunting scenarios for incident response tabletop exercises.</li>
+        <li>Built custom detection rules in Microsoft Defender for Endpoint to automate isolation and investigation.</li>
+        <li>Reduced brute force incidents by 100% by tightening inbound NSG/firewall rules.</li>
+        <li>Built Microsoft Sentinel dashboards to monitor logon failures and malicious traffic; queried logs with KQL.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div>
+          <h3>Cyber Security Engineer — System Hardening</h3>
+          <span class="company mono">Accenture</span>
+        </div>
+        <span class="dates mono">Mar 2024 – Present</span>
+      </div>
+      <ul>
+        <li>Supported the end phase of a Linux-focused vulnerability management project — reviewing SOWs to align scope and control objectives.</li>
+        <li>Contributed to scanning cadence and asset visibility planning across WinTel and Unix systems.</li>
+        <li>Helped build knowledge-transfer materials summarizing project deliverables for long-term client use.</li>
+        <li>Identified by leadership as a strong candidate for advancement, with growing visibility into governance and cross-functional consulting work.</li>
+      </ul>
+    </div>
+
+    <div class="job" style="border-left-color:var(--wire-cyan);">
+      <div class="job-head">
+        <div>
+          <h3>IT Endpoint Associate</h3>
+          <span class="company mono">Fairview Health Services</span>
+        </div>
+        <span class="dates mono">Nov 2022 – Jul 2023</span>
+      </div>
+      <ul>
+        <li>Lead IT technician for 17 Fairview Clinics under the Maple Grove umbrella — end-user devices, applications, and network equipment.</li>
+        <li>Maintained network equipment for reliable connectivity, including cabling and patch panel work.</li>
+        <li>Managed procurement, tracking, and deployment of end-user computing devices for clinical staff.</li>
+        <li>Tracked and resolved incidents via ticketing systems in a fast-paced healthcare environment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">03 · Certifications</div>
+    <h2 class="sec-title">Credentials</h2>
+    <div class="grid">
+      <div class="card"><span class="tag">Google</span><h4>Data Analytics Professional Certificate</h4></div>
+      <div class="card"><span class="tag">CompTIA</span><h4>Security+</h4></div>
+      <div class="card"><span class="tag">AWS</span><h4>Cloud Practitioner</h4></div>
+      <div class="card"><span class="tag">Styra Academy</span><h4>OPA Policy Authoring</h4></div>
+      <div class="card"><span class="tag">WIZ Training Academy</span><h4>MCSP</h4></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">04 · Skills</div>
+    <h2 class="sec-title">Tools &amp; frameworks</h2>
+    <div class="skills">
+      <span class="pill">Endpoint Detection &amp; Response</span>
+      <span class="pill">OWASP Top 10</span>
+      <span class="pill">Risk Prioritization</span>
+      <span class="pill">Vulnerability Remediation</span>
+      <span class="pill">Firewall / NSG Configuration</span>
+      <span class="pill">Tenable</span>
+      <span class="pill">Microsoft Defender for Endpoint</span>
+      <span class="pill">Microsoft Sentinel</span>
+      <span class="pill">KQL</span>
+      <span class="pill">PowerShell</span>
+      <span class="pill">DISA STIG</span>
+      <span class="pill">NIST 800-37</span>
+      <span class="pill">NIST 800-53</span>
+      <span class="pill">NIST 800-61</span>
+      <span class="pill">NIST 800-40</span>
+      <span class="pill">NIST Cybersecurity Framework</span>
+      <span class="pill">PCI-DSS</span>
+      <span class="pill">GDPR</span>
+      <span class="pill">HIPAA</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">05 · Education</div>
+    <h2 class="sec-title">School</h2>
+    <div class="grid">
+      <div class="card"><span class="tag">2021</span><h4>B.A. Biology</h4><p>University of Minnesota, Morris</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">06 · More</div>
+    <h2 class="sec-title">Currently studying</h2>
+    <a class="studies-card" href="mattaStudies/">
+      <span class="tag mono">mattaStudies</span>
+      <h3>Visual study maps →</h3>
+      <p>A running log of what I'm learning right now, built as visual maps instead of plain notes — starting with the AWS Solutions Architect Associate exam.</p>
+    </a>
+  </section>
+
+</main>
+
+<footer class="mono">
+  Fatoumatta Jarju · fmatta.jarju@gmail.com · Minnesota
+</footer>
+
 </body>
 </html>
